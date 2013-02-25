@@ -89,19 +89,19 @@ Further details on filtering GET requests here: http://blog.xero.com/developer/a
 
 ### Example Usage:
 <code>
-<?php 
-require('setup.php');
-include('lib/Xero.php');
-session_start();
-if (isset($_GET['logoff'])) {
-	session_unset();
-}
+    <?php 
+    require('setup.php');
+    include('lib/Xero.php');
+    session_start();
+    if (isset($_GET['logoff'])) {
+      session_unset();
+    }
 
-$xero = new Xero; 
+    $xero = new Xero; 
 
-if($_GET['do'] == "create_contact"){ //the input format for creating a new contact see http://blog.xero.com/developer/api/contacts/ to understand more 
-	$new_contact = array( 
-		array( 
+    if($_GET['do'] == "create_contact"){ //the input format for creating a new contact see http://blog.xero.com/developer/api/contacts/ to understand more 
+      $new_contact = array( 
+        array( 
 			"Name" => "MJ", 
 			"FirstName" => "Michael", 
 			"LastName" => "Jackson", 
@@ -128,16 +128,16 @@ if($_GET['do'] == "create_contact"){ //the input format for creating a new conta
 
     //echo the results back
     if ( is_object($contact_result) ) {
-   	 	//use this to see the source code if the $format option is "xml"
-   	 	echo htmlentities($contact_result->asXML());
+      //use this to see the source code if the $format option is "xml"
+      echo htmlentities($contact_result->asXML());
     } else {
-   	 	//use this to see the source code if the $format option is "json" or not specified
-    	echo json_encode($contact_result);
+      //use this to see the source code if the $format option is "json" or not specified
+      echo json_encode($contact_result);
     }
-}
+    }
 
 
-if($_GET['do'] == "create_invoice_and_payment"){		
+    if($_GET['do'] == "create_invoice_and_payment"){		
     //the input format for creating a new invoice (or credit note) see http://blog.xero.com/developer/api/invoices/
     $invNumber = rand(1, 20);
     $new_invoice = array(
@@ -187,62 +187,62 @@ if($_GET['do'] == "create_invoice_and_payment"){
 
     //echo the results back
     if ( is_object($invoice_result) ) {
-   	 	//use this to see the source code if the $format option is "xml"
-   	 	echo htmlentities($invoice_result->asXML());
+      //use this to see the source code if the $format option is "xml"
+      echo htmlentities($invoice_result->asXML());
     } else {
-   	 	//use this to see the source code if the $format option is "json" or not specified
-    	echo json_encode($invoice_result);
+      //use this to see the source code if the $format option is "json" or not specified
+      echo json_encode($invoice_result);
     }
     echo '<hr />';
     if ( is_object($payment_result) ) {
-   	 	//use this to see the source code if the $format option is "xml"
-   	 	echo htmlentities($payment_result->asXML());
+      //use this to see the source code if the $format option is "xml"
+      echo htmlentities($payment_result->asXML());
     } else {
-   	 	//use this to see the source code if the $format option is "json" or not specified
-    	echo json_encode($payment_result);
+      //use this to see the source code if the $format option is "json" or not specified
+      echo json_encode($payment_result);
     }
 
-}
+    }
 	
-if($_GET['do'] == "pdf_an_invoice"){ // first get an invoice number to use 
-	$org_invoices = $xero->Invoices; 
-	$invoice_count = sizeof($org_invoices->Invoices->Invoice); $invoice_index = rand(0,$invoice_count); 
-	$invoice_id = (string) $org_invoices->Invoices->Invoice[$invoice_index]->InvoiceID; 
-	if(!$invoice_id) echo "You will need some invoices for this...";
+    if($_GET['do'] == "pdf_an_invoice"){ // first get an invoice number to use 
+      $org_invoices = $xero->Invoices; 
+      $invoice_count = sizeof($org_invoices->Invoices->Invoice); $invoice_index = rand(0,$invoice_count); 
+      $invoice_id = (string) $org_invoices->Invoices->Invoice[$invoice_index]->InvoiceID; 
+      if(!$invoice_id) echo "You will need some invoices for this...";
 
-	// now retrieve that and display the pdf
-	$pdf_invoice = $xero->Invoices($invoice_id, '', '', '', 'pdf');
-	header('Content-type: application/pdf'); header('Content-Disposition: inline; filename="the.pdf"'); 
-	echo ($pdf_invoice);
-}
+      // now retrieve that and display the pdf
+      $pdf_invoice = $xero->Invoices($invoice_id, '', '', '', 'pdf');
+      header('Content-type: application/pdf'); header('Content-Disposition: inline; filename="the.pdf"'); 
+      echo ($pdf_invoice);
+    }
 
-// OTHER COOL STUFF
-//get details of an account, with the name "Test Account"
-//$result = $xero->Accounts(false, false, array("Name"=>"Test Account") );
-//the params above correspond to the "Optional params for GET Accounts" on http://blog.xero.com/developer/api/accounts/
+    // OTHER COOL STUFF
+    //get details of an account, with the name "Test Account"
+    //$result = $xero->Accounts(false, false, array("Name"=>"Test Account") );
+    //the params above correspond to the "Optional params for GET Accounts" on http://blog.xero.com/developer/api/accounts/
 
-//to do a POST request, the first and only param must be a multidimensional array as shown above in $new_contact etc.
+    //to do a POST request, the first and only param must be a multidimensional array as shown above in $new_contact etc.
 
-//get details of all accounts
-//$all_accounts = $xero->Accounts;
+    //get details of all accounts
+    //$all_accounts = $xero->Accounts;
 
-//echo the results back
-//if ( is_object($invoice_result) ) {
-	 	//use this to see the source code if the $format option is "xml"
-	 	//echo htmlentities($payment_result->asXML()) . "<hr />";
-//} else {
-	 //use this to see the source code if the $format option is "json" or not specified
-	//echo json_encode($payment_result) . "<hr />";
-//}
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>Xero Library</title>
-	<link rel="stylesheet" type="text/css" href="<?=$web_root?>/css/style.css" />
-</head>
-<body>
+    //echo the results back
+    //if ( is_object($invoice_result) ) {
+      //use this to see the source code if the $format option is "xml"
+      //echo htmlentities($payment_result->asXML()) . "<hr />";
+    //} else {
+      //use this to see the source code if the $format option is "json" or not specified
+      //echo json_encode($payment_result) . "<hr />";
+    //}
+    ?>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+       <meta charset="utf-8">
+       <title>Xero Library</title>
+       <link rel="stylesheet" type="text/css" href="<?=$web_root?>/css/style.css" />
+      </head>
+     <body>
 	<div id="container">
 		<h1>Xero API PHP</h1>
 		<div id="body">
@@ -259,6 +259,6 @@ if($_GET['do'] == "pdf_an_invoice"){ // first get an invoice number to use
 			<?php endif ?>
 		</div>
 	</div>
-</body>
-</html>
+    </body>
+    </html>
 </code>
