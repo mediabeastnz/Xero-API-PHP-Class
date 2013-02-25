@@ -90,7 +90,6 @@ Further details on filtering GET requests here: http://blog.xero.com/developer/a
 ### Example Usage:
 <code>
     <?php 
-    
     require('setup.php');
     include('lib/Xero.php');
     session_start();
