@@ -1,6 +1,9 @@
 PHP-Xero PHP Wrapper
 ====================
 
+Note: This has not been fully tested and is only up here to provide a starting point and to save you time searching the web :)
+
+
 Introduction
 ------------
 A class for interacting with the xero (xero.com) Public/Partner application API. More documentation for Xero can be found at http://blog.xero.com/developer/api-overview/  
