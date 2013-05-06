@@ -2,7 +2,7 @@ PHP-Xero PHP Wrapper
 ====================
 
 Note: This has not been fully tested and is only up here to provide a starting point and to save you time searching the web :)
-
+Bugs: I'm aware of a few minor bugs which effect renewal of an access token and will upload the fix very soon.
 
 Introduction
 ------------
