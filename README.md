@@ -78,6 +78,7 @@ OAuth callback domain: [domain]
 DATABASE
 1. make a new database called "xero"
 2. run xero.sql - to import tables i've created for testing.
+3. make sure there is 1 row in "xero_api" table with the id of 1 - used to update credentials 
 
 
 Usage

@@ -22,3 +22,8 @@ CREATE TABLE `api_xero_responses` (
   `Occured` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='store all error responses from Xero API';
+
+-- Insert required rows
+INSERT INTO `api_xero` (`id`, `access_token`, `access_token_secret`, `oauth_session_handle`, `connection_start`, `default_sales_account`, `default_purchases_account`, `user_id`, `status`)
+VALUES
+  (1,'','','',0,0,0,0,'Disconnected');
