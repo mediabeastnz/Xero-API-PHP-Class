@@ -1,0 +1,14 @@
+
+api/xero/lib/publickey.cer
+
+api/xero/lib/privatekey.pem
+
+api/xero/lib/entrust-cert.pem
+
+api/xero/lib/entrust-private-nopass.pem
+
+api/xero/lib/entrust.p12
+
+api/xero/lib/entrust-private.pem
+
+api/xero/lib/public_privatekey.pfx
