@@ -5,6 +5,6 @@
     "homepage": "https://github.com/mediabeastnz/Xero-API-PHP-Class",
     "license": "MIT",
     "require": {
-        "php": ">=5.3.0",
+        "php": ">=5.3.0"
     }
 }
