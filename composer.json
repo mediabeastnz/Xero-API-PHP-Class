@@ -1,0 +1,10 @@
+{
+    "name": "mediabeastnz/xero-api-php",
+    "description": "A PHP wrapper that works with the Xero API (Public & Partner)",
+    "keywords": ["php","xero", "api"],
+    "homepage": "https://github.com/mediabeastnz/Xero-API-PHP-Class",
+    "license": "MIT",
+    "require": {
+        "php": ">=5.3.0",
+    }
+}
