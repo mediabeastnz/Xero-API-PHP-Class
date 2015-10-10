@@ -1,3 +1,5 @@
+#NOT SUPPORTED
+
 PHP-Xero PHP Wrapper (Partner)
 ====================
 
